@@ -7,3 +7,5 @@ Any visit to an art museum leaves the observer with a sense of the style of each
 - ***"A Neural Algorithm of Artistic Style"*** by L. Gatys, A. Ecker, and M. Bethge: http://arxiv.org/abs/1508.06576.
 - ***"Perceptual Losses for Real-Time Style Transfer and Super-Resolution"*** by J. Johnson, A. Alahi, Li Fei-Fei: https://arxiv.org/abs/1603.08155
 - ***"Instance Normalization: The Missing Ingredient for Fast Stylization"*** by D. Ulyanov, A. Vedaldi, V. Lempitsky: https://arxiv.org/abs/1607.08022
+- ***"Demystifying Neural Style Transfer"*** by Y. Li, N. Wang, J. Liu, X. Hou
+:https://arxiv.org/pdf/1701.01036.pdf
