@@ -52,6 +52,13 @@ with tf.variable_scope("core"):
     dimg = tf.get_variable("developing-img", [height, width, 3],
                            dtype=tf.float32, initializer=tf.random_uniform_initializer(0, 1))
 
+    # testing out backpropagation... (uncomment below and change dimg in loss to dimg2)
+    #dimg2 = tf.get_variable("test-variable-to-be-deleted", [height, width, 3],
+    #                       dtype=tf.float32, initializer=tf.random_uniform_initializer(0, 1))
+
+    #tf.assign(dimg2, dimg)
+    #dimg2 = tf.identity(dimg)
+
     # use a mean square error between dimg and cimg for loss function
     loss = tf.reduce_sum(tf.subtract(dimg, cimg) ** 2) / (height*width)
 
@@ -72,7 +79,7 @@ with tf.Session() as sess:
     # keep track of the loss values for every iteration
     loss_history_lst = [] # make a list to hold all loss_val tensors
 
-    iteration_count = 4000 # the number of gradient descent steps we will take
+    iteration_count = 2000 # the number of gradient descent steps we will take
 
     for _ in range(iteration_count):
         # do a gradient descent step
