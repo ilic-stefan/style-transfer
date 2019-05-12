@@ -52,12 +52,6 @@ with tf.variable_scope("core"):
     dimg = tf.get_variable("developing-img", [height, width, 3],
                            dtype=tf.float32, initializer=tf.random_uniform_initializer(0, 1))
 
-    # $$$ testing out backpropagation...
-    #dimg2 = tf.get_variable("test-variable-to-be-deleted", [height, width, 3],
-                           #dtype=tf.float32, initializer=tf.random_uniform_initializer(0, 1))
-
-    #tf.assign(dimg2, dimg)
-
     # use a mean square error between dimg and cimg for loss function
     loss = tf.reduce_sum(tf.subtract(dimg, cimg) ** 2) / (height*width)
 
