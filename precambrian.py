@@ -96,5 +96,5 @@ with tf.Session() as sess:
 # plt.show()
 
 # Display Resulting Image #
-cv2.imshow("reconstructed image", content_img)
+cv2.imshow("reconstructed image", outimg)
 cv2.waitKey(0)
