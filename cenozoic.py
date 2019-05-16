@@ -266,16 +266,18 @@ print(np.amin(outImg))
 iteration_history = np.arange(iteration_count)
 plt.scatter(iteration_history, out_loss_history)
 plt.title("loss during optimization")
-plt.show()
+# plt.show()
+plt.savefig("/home/ilicstef/Git/style_transfer/results/loss_plot.jpg")
 
 # Display Resulting Image #
-assert content_img_original.shape == (height, width, 3)
-cv2.imshow("content image", content_img_original)
-cv2.imshow("style image", style_img_original)
+# assert content_img_original.shape == (height, width, 3)
+# cv2.imshow("content image", content_img_original)
+# cv2.imshow("style image", style_img_original)
 
 # convert outImg to right dimensions to be viewed
 outImg = np.squeeze(outImg)
-cv2.imshow("reconstructed image", outImg)
-cv2.waitKey(0)
+# cv2.imshow("reconstructed image", outImg)
+cv2.imwrite("output_image.jpg", outImg)
+# cv2.waitKey(0)
 
 print("results done.")
