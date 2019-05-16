@@ -5,7 +5,7 @@ import math
 from matplotlib import pyplot as plt
 import time
 # import vgg 19
-from tfvgg19 import vgg19, utils
+from tfvgg19 import vgg19 
 
 # take start time for time measurement
 start_time = time.time()
@@ -19,7 +19,7 @@ width = 224
 # read the content image which will be fed into comp. graph
 print("Retrieving Content Image...")
 
-content_image_path = "/Users/Stefan/Desktop/sanfran.jpg"
+content_image_path = "/home/ilicstef/Git/style-transfer/images/pics/gates_tower.jpg"
 print("Using Image at: " + content_image_path)
 
 # read image
@@ -32,12 +32,12 @@ assert content_img is not None
 # calculate the first height index of content image window
 cont_IMHeight = (content_img.shape[0] - height) / 2
 # cast as int to work as an array subscript
-cont_IMHeight = math.floor(cont_IMHeight)
+cont_IMHeight = int(math.floor(cont_IMHeight))
 
 # calculate the first width index of content image window
 cont_IMWidth = (content_img.shape[1] - height) / 2
 # cast as int
-cont_IMWidth = math.floor(cont_IMWidth)
+cont_IMWidth = int(math.floor(cont_IMWidth))
 
 # resize content image to a height by width by 3 image
 content_img = content_img[cont_IMHeight:cont_IMHeight + height, cont_IMWidth:cont_IMWidth + width, :]
@@ -58,7 +58,7 @@ print("Finished Reading Content Image.")
 # read the style image which will be fed into comp. graph
 print("Retrieving Style Image...")
 
-style_image_path = "/Users/Stefan/Desktop/grinnell_in_fall.jpg"
+style_image_path = "/home/ilicstef/Git/style-transfer/images/styles/starry_night.jpg"
 print("Using Image at: " + style_image_path)
 
 # read image
@@ -71,12 +71,12 @@ assert style_img is not None
 # calculate the first height index of content image window
 style_IMHeight = (style_img.shape[0] - height) / 2
 # cast as int to work as an array subscript
-style_IMHeight = math.floor(style_IMHeight)
+style_IMHeight = int(math.floor(style_IMHeight))
 
 # calculate the first width index of style image window
 style_IMWidth = (style_img.shape[1] - height) / 2
 # cast as int
-style_IMWidth = math.floor(style_IMWidth)
+style_IMWidth = int(math.floor(style_IMWidth))
 
 # resize style image to a height by width by 3 image
 style_img = style_img[style_IMHeight:style_IMHeight + height, style_IMWidth:style_IMWidth + width, :]
@@ -202,7 +202,7 @@ with tf.variable_scope("main_structure"):
         itrm_style_losses += layer_sty_loss
 
     # specify weights for loss value at each layer
-    weights = tf.constant([1/5, 1/5, 1/5, 1/5])
+    weights = tf.constant([1./5, 1./5, 1./5, 1./5])
 
     # compute final style loss
     style_loss = tf.tensordot(weights, itrm_style_losses, axes=0)
